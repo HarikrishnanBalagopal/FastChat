@@ -79,16 +79,23 @@ class Controller:
         worker_status: dict,
         multimodal: bool,
     ):
+        print(f'DEBUG 2 Controller.register_worker: {worker_name}')
         if worker_name not in self.worker_info:
+            print('DEBUG 2.1')
             logger.info(f"Register a new worker: {worker_name}")
         else:
+            print('DEBUG 2.2')
             logger.info(f"Register an existing worker: {worker_name}")
 
+        print('DEBUG 2.3')
         if not worker_status:
+            print('DEBUG 2.4')
             worker_status = self.get_worker_status(worker_name)
         if not worker_status:
+            print('DEBUG 2.5')
             return False
 
+        print('DEBUG 2.6')
         self.worker_info[worker_name] = WorkerInfo(
             worker_status["model_names"],
             worker_status["speed"],
@@ -98,6 +105,7 @@ class Controller:
             multimodal,
         )
 
+        print('DEBUG 2.7')
         logger.info(f"Register done: {worker_name}, {worker_status}")
         return True
 
@@ -128,11 +136,14 @@ class Controller:
                 logger.info(f"Remove stale worker: {w_name}")
 
     def list_models(self):
+        print('DEBUG 1 Controller.list_models')
         model_names = set()
 
         for w_name, w_info in self.worker_info.items():
+            print(f'DEBUG 1.1 controller.list_models w_name: {w_name} w_info: {w_info}')
             model_names.update(w_info.model_names)
 
+        print(f'DEBUG 1.2 controller.list_models model_names: {model_names}')
         return list(model_names)
 
     def list_multimodal_models(self):
