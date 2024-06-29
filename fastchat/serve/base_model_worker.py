@@ -45,7 +45,22 @@ class BaseModelWorker:
             model_path = model_path[:-1]
         self.model_names = model_names or [model_path.split("/")[-1]]
         self.limit_worker_concurrency = limit_worker_concurrency
+        print('================== DEBUG ==================')
+        print('================== DEBUG ==================')
+        print('================== DEBUG ==================')
+        print('================== DEBUG ==================')
+        print('================== DEBUG ==================')
+        print('================== DEBUG ==================')
+        print('================== DEBUG ==================')
+        print('================== DEBUG ==================')
+        print('================== DEBUG ==================')
+        print('conv_template, model_path', conv_template, model_path)
+        print('================== DEBUG ==================')
         self.conv = self.make_conv_template(conv_template, model_path)
+        print('================== DEBUG ==================')
+        print('self.conv', self.conv)
+        print('self.conv.sep_style', self.conv.sep_style)
+        print('================== DEBUG ==================')
         self.conv.sep_style = int(self.conv.sep_style)
         self.multimodal = multimodal
         self.tokenizer = None
