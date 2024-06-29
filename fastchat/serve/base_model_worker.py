@@ -87,8 +87,10 @@ class BaseModelWorker:
         from fastchat.model.model_adapter import get_conversation_template
 
         if conv_template:
+            print("DEBUG make_conv_template if x1")
             conv = get_conv_template(conv_template)
         else:
+            print("DEBUG make_conv_template else x1")
             conv = get_conversation_template(model_path)
         return conv
 

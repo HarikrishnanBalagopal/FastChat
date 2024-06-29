@@ -123,7 +123,11 @@ class BaseModelAdapter:
         )
 
     def get_default_conv_template(self, model_path: str) -> Conversation:
-        return get_conv_template("one_shot")
+        print("DEBUG x3 get_default_conv_template model_path", model_path)
+        t1 = get_conv_template("one_shot")
+        print("DEBUG x3 get_default_conv_template t1", t1)
+        return t1
+        # return get_conv_template("one_shot")
 
 
 # A global registry for all model adapters
@@ -379,7 +383,9 @@ def load_model(
 
 def get_conversation_template(model_path: str) -> Conversation:
     """Get the default conversation template."""
+    print("DEBUG x2 get_conversation_template model_path", model_path)
     adapter = get_model_adapter(model_path)
+    print("DEBUG x2 get_conversation_template adapter", adapter)
     return adapter.get_default_conv_template(model_path)
 
 
