@@ -124,9 +124,9 @@ class BaseModelAdapter:
         )
 
     def get_default_conv_template(self, model_path: str) -> Conversation:
-        print("DEBUG x3 get_default_conv_template model_path", model_path)
+        print("DEBUG x3 BaseModelAdapter.get_default_conv_template(one_shot) model_path", model_path)
         t1 = get_conv_template("one_shot")
-        print("DEBUG x3 get_default_conv_template t1", t1)
+        print("DEBUG x3 BaseModelAdapter.get_default_conv_template t1", t1)
         return t1
         # return get_conv_template("one_shot")
 

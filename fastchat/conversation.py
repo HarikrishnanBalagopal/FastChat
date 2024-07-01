@@ -426,7 +426,7 @@ def register_conv_template(template: Conversation, override: bool = False):
 
 def get_conv_template(name: str) -> Conversation:
     """Get a conversation template."""
-    print("DEBUG get_conv_template x4 name", name)
+    print("DEBUG get_conv_template x4 name", name, "conv_templates", conv_templates)
     t2 = conv_templates[name].copy()
     print("DEBUG get_conv_template x4 t2", t2)
     return t2

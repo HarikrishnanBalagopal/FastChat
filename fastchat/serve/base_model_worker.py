@@ -46,14 +46,6 @@ class BaseModelWorker:
         self.model_names = model_names or [model_path.split("/")[-1]]
         self.limit_worker_concurrency = limit_worker_concurrency
         print('================== DEBUG ==================')
-        print('================== DEBUG ==================')
-        print('================== DEBUG ==================')
-        print('================== DEBUG ==================')
-        print('================== DEBUG ==================')
-        print('================== DEBUG ==================')
-        print('================== DEBUG ==================')
-        print('================== DEBUG ==================')
-        print('================== DEBUG ==================')
         print('conv_template, model_path', conv_template, model_path)
         print('================== DEBUG ==================')
         self.conv = self.make_conv_template(conv_template, model_path)
@@ -89,9 +81,11 @@ class BaseModelWorker:
         if conv_template:
             print("DEBUG make_conv_template if x1")
             conv = get_conv_template(conv_template)
+            print("DEBUG make_conv_template if x1 conv", conv)
         else:
             print("DEBUG make_conv_template else x1")
             conv = get_conversation_template(model_path)
+            print("DEBUG make_conv_template else x1 conv", conv)
         return conv
 
     def init_heart_beat(self):
